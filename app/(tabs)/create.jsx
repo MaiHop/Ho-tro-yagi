@@ -6,7 +6,7 @@ import { icons } from "../../constants";
 import { CustomButton, FormField } from "../../components";
 import * as ImagePicker from 'expo-image-picker';
 import axios from "axios";
-
+import { useNavigation } from '@react-navigation/native';
 // Dòng 120 hàm axios.post cần đc sửa DOMAIN
 async function requestStoragePermission() {
   if (Platform.OS === 'android') { 
@@ -41,6 +41,7 @@ const getCurrentDate = () => {
 };
 
 const Create = () => {
+  const navigation = useNavigation();
   const [uploading, setUploading] = useState(false);
   const [form, setForm] = useState({
     title: "",
@@ -126,7 +127,9 @@ const Create = () => {
       });
   
       Alert.alert("Success", "Yêu cầu được gửi đi thành công");
-  
+      // Chuyển sang màn hình home sau khi gửi thành công
+      navigation.navigate('home', { refresh: true }); // Chuyển hướng đến trang Home sau khi đăng nhập thành công
+
     } catch (error) {
       Alert.alert("Error", error.message);
     } finally {

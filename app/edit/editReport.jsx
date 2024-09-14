@@ -1,12 +1,22 @@
 import { useState, useEffect, React} from "react";
 import { View, Text,Alert, StyleSheet, Image, TextInput, Button,  ScrollView } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useRoute,useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CustomButton, FormField } from "../../components";
 import axios from "axios";
-
 // Dòng 63 có hàm gửi dữ liệu axios.post cần chỉnh sửa DOMAIN
 const SERVER_DOMAIN = "https://danvanthanhphothuduc.org/diemden/upload/";
+
+const getStatusText = (status) => {
+  switch (status) {
+    case 0:
+      return "Chưa xử lý";
+    case 1:
+      return "Đã xử lý";
+    default:
+      return "Không xác định";
+  }
+};
 
   const getCurrentDate = () => {
     const today = new Date();
@@ -17,6 +27,7 @@ const SERVER_DOMAIN = "https://danvanthanhphothuduc.org/diemden/upload/";
   };
 
   const EditReport = () => {
+    const navigation = useNavigation();
     const route = useRoute({ route });
     const { item } = route.params; // Sử dụng tên tham số là 'item'
     const [uploading, setUploading] = useState(false);
@@ -66,7 +77,7 @@ const SERVER_DOMAIN = "https://danvanthanhphothuduc.org/diemden/upload/";
         });
     
         Alert.alert("Success", "Yêu cầu chỉnh sửa đã được gửi đi");
-    
+        navigation.navigate('home', { refresh: true });
       } catch (error) {
         Alert.alert("Error", error.message);
       } finally {
@@ -140,11 +151,11 @@ const SERVER_DOMAIN = "https://danvanthanhphothuduc.org/diemden/upload/";
 
         <FormField
           title="Trạng thái:"
-          value={form.status}
+          value={getStatusText(form.status)}
           placeholder= "0: chưa xử lý | 1: đã xử lý"
           handleChangeText={(e) => setForm({ ...form, status: e })}
           otherStyles="mt-7"
-        
+          editable={false} 
         />
         <FormField
           title="Ghi chú:"

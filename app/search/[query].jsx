@@ -38,7 +38,7 @@ const Search = () => {
   const navigation = useNavigation();
   const searchPosts = async (query) => {
     try {
-      const url = `${SERVER_DOMAIN}/API_Report_App/search_reports.php?query=${encodeURIComponent(query)}`;
+      const url = `${SERVER_DOMAIN}/diemden/search_reports.php?query=${encodeURIComponent(query)}`;
       const response = await axios.get(`${SERVER_DOMAIN}/search_reports.php?query=${encodeURIComponent(query)}`);
       return response.data; 
     } catch (error) {
