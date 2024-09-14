@@ -89,7 +89,7 @@ const Search = () => {
           <>
             <View className="flex my-6 px-4">
               <Text className="font-pmedium text-gray-100 text-sm">Kết quả  tìm kiếm</Text>
-              <Text className="text-2xl font-psemibold text-white mt-1">{posts.length}</Text>
+              <Text className="text-2xl font-psemibold text-white mt-1">{query}</Text>
               <View className="mt-6 mb-8">
                 <SearchInput initialQuery={query} onSearch={setPosts} />
               </View>
