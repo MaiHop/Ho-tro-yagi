@@ -25,7 +25,6 @@ const Home = () => {
           'Cache-Control': 'no-cache',
         },
       });
-      console.log('Fetched posts:', response.data);
       setPosts(response.data);
     } catch (error) {
       console.error('Error fetching posts:', error);
