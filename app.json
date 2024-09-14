@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "Cứu trợ bão Yagi",
+    "slug": "BaoCaoDiemDen",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo1.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logo2.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "scheme": "Cứu trợ bão Yagi",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo2.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "INTERNET"
+      ],
+      "package": "com.hhloi.BaoCaoDiemDen"
+    },
+    "web": {
+      "favicon": "./assets/logo3.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e9dee2a3-d83e-47c5-a46e-3e41b1ec129a"
+      }
+    }
+  }
+}
