@@ -67,7 +67,7 @@ const Welcome = () => {
           </Text>
 
           <CustomButton
-            title="GỬI YÊU CẦU HỖ TRỢ"
+            title="GỬI YÊU CẦU HỖ TRỢ TẠI ĐÂY"
             handlePress={() => router.push("/home")}
             containerStyles="w-full mt-7"
           />

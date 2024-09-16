@@ -29,7 +29,8 @@
       "package": "com.hhloi.BaoCaoDiemDen"
     },
     "web": {
-      "favicon": "./assets/logo3.png"
+      "favicon": "./assets/logo3.png",
+       "bundler": "metro"
     },
     "plugins": [
       "expo-router",
